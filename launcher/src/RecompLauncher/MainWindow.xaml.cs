@@ -830,7 +830,8 @@ public partial class MainWindow : Window
             var payloadDir = string.IsNullOrWhiteSpace(_profile.Game.PayloadDir)
                 ? "game"
                 : _profile.Game.PayloadDir;
-            var written = PayloadService.ExtractIfNeeded(_profilePath, payloadDir);
+            var profileDir = Path.GetDirectoryName(_profilePath)!;
+            var written = PayloadService.ExtractIfNeeded(profileDir, payloadDir);
             if (written > 0)
                 Status($"Extracted {written} game file(s) from launcher payload.");
         }
