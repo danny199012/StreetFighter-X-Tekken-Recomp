@@ -22,7 +22,7 @@ Xbox 360 disc. You must own the game.
 
 ## Quick start (prebuilt launcher)
 
-1. Download `RecompLauncher.exe` from the
+1. Download `SFxTLauncher.exe` from the
    [Releases](../../releases) page, with `launcher.json` and
    `banner.jpg` beside it.
 2. Put `extract-xiso.exe`
@@ -72,7 +72,7 @@ cd launcher
 The build embeds whatever you place in
 `launcher\src\RecompLauncher\payload\` — drop in your freshly built
 `SFxT.exe`, `rexruntime.dll` and `rexgpu-xenos.dll` — and produces a
-single self-contained `publish\RecompLauncher.exe`.
+single self-contained `publish\SFxTLauncher.exe`.
 
 ## Repository layout
 

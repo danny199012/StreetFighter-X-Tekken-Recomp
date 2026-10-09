@@ -1,13 +1,13 @@
 # Street Fighter X Tekken — Recomp Launcher
 
 Distribution launcher for the Street Fighter X Tekken Xbox 360 recomp
-(ReXGlue). One self-contained `RecompLauncher.exe` carries the recompiled
+(ReXGlue). One self-contained `SFxTLauncher.exe` carries the recompiled
 game binaries inside it; nobody downloads or ships game content.
 
 ## First run
 
 1. Put `extract-xiso.exe` (free, open-source Xbox 360 image extractor,
-   https://github.com/XboxDev/extract-xiso) next to `RecompLauncher.exe`.
+   https://github.com/XboxDev/extract-xiso) next to `SFxTLauncher.exe`.
 2. Click **Add disc…** and pick your own Street Fighter X Tekken disc
    image (`.iso`). The launcher unpacks the game files the recomp needs
    (`default.xex`, `archive/`, `stream/`, …) into the `game\` folder.
@@ -22,7 +22,7 @@ game folder by editing `game.gameDataRoot` in `launcher.json`.
 ## Headless extraction (optional)
 
 ```
-RecompLauncher.exe --extract-iso <profile folder> <image.iso> [destDir]
+SFxTLauncher.exe --extract-iso <profile folder> <image.iso> [destDir]
 ```
 
 ## Player name (the "usernames" fix)
@@ -70,14 +70,14 @@ SFxT_launcher\
   banner.jpg        header image
   extract-xiso.exe  (you provide) disc image extractor
   game\             created at runtime: binaries + extracted disc content
-  build.ps1         builds publish\RecompLauncher.exe (needs .NET SDK 10+)
+  build.ps1         builds publish\SFxTLauncher.exe (needs .NET SDK 10+)
   src\RecompLauncher\  WPF app source (game payloads embed from payload\)
 ```
 
 ## Building
 
 ```
-.\build.ps1            # release -> publish\RecompLauncher.exe (single file)
+.\build.ps1            # release -> publish\SFxTLauncher.exe (single file)
 ```
 
 The game payload (`src\RecompLauncher\payload\`) is embedded at build time.

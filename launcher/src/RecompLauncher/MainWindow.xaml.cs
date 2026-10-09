@@ -978,6 +978,9 @@ public partial class MainWindow : Window
     private void RefreshHeader()
     {
         GameTitle.Text = _profile.Game.Name;
+        Title = string.IsNullOrWhiteSpace(_profile.Game.Name)
+            ? "Recomp Launcher"
+            : $"{_profile.Game.Name} — Recomp Launcher";
         GameSubtitle.Text = _profile.Game.Subtitle
                             ?? (_profilePath is null ? "" : Path.GetFileName(_profilePath));
         GameSubtitle.ToolTip = _profilePath;
