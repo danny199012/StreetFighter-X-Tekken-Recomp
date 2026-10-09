@@ -1,19 +1,23 @@
 {
   "schema": 1,
-
   "game": {
     "name": "Street Fighter X Tekken",
     "subtitle": "Xbox 360 recomp (ReXGlue)",
     "exe": "game/SFxT.exe",
     "gameDataRoot": "game",
-    "args": [ "--gpu_plugin", "xenos", "--no-fullscreen" ],
+    "args": [
+      "--gpu_plugin",
+      "xenos",
+      "--no-fullscreen",
+      "--perf_log_csv",
+      "G:\rexglue-build\\sfxt-perf.csv"
+    ],
     "config": null,
     "banner": "banner.jpg",
     "usernameCvar": "profile_name",
     "onlineUsernameCvar": "online_username",
     "extractXisoPath": null
   },
-
   "tabs": [
     {
       "name": "Display",
@@ -25,7 +29,7 @@
           "default": "1707",
           "min": 640,
           "max": 5000,
-          "hint": "Window width in LOGICAL pixels (physical = logical x display scale; 1707 fills a 4K screen at 225% scaling). Fullscreen is forced off at launch (performance)."
+          "hint": "Window width in LOGICAL pixels (physical = logical x display scale; 1707 fills a 4K screen at 225% scaling)."
         },
         {
           "cvar": "window_height",
@@ -34,7 +38,7 @@
           "default": "960",
           "min": 480,
           "max": 3000,
-          "hint": "Window height in LOGICAL pixels (960 fills a 4K screen at 225% scaling).
+          "hint": "Window height in LOGICAL pixels (960 fills a 4K screen at 225% scaling)."
         },
         {
           "cvar": "vsync",
@@ -57,16 +61,24 @@
           "type": "choice",
           "default": "0",
           "choices": [
-            { "value": "0", "label": "Primary (0)" },
-            { "value": "1", "label": "Monitor 1" },
-            { "value": "2", "label": "Monitor 2" }
+            {
+              "value": "0",
+              "label": "Primary (0)"
+            },
+            {
+              "value": "1",
+              "label": "Monitor 1"
+            },
+            {
+              "value": "2",
+              "label": "Monitor 2"
+            }
           ],
           "hint": "Which display to use.",
           "advanced": true
         }
       ]
     },
-
     {
       "name": "Graphics",
       "settings": [
@@ -85,11 +97,26 @@
           "type": "choice",
           "default": "0",
           "choices": [
-            { "value": "0", "label": "Game default" },
-            { "value": "2", "label": "2x" },
-            { "value": "4", "label": "4x" },
-            { "value": "8", "label": "8x" },
-            { "value": "16", "label": "16x" }
+            {
+              "value": "0",
+              "label": "Game default"
+            },
+            {
+              "value": "2",
+              "label": "2x"
+            },
+            {
+              "value": "4",
+              "label": "4x"
+            },
+            {
+              "value": "8",
+              "label": "8x"
+            },
+            {
+              "value": "16",
+              "label": "16x"
+            }
           ],
           "hint": "Force a texture filtering level."
         }
