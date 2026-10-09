@@ -13,6 +13,7 @@ include(generated/rexglue.cmake)
 # Sources
 set(SFXT_SOURCES
     src/main.cpp
+    src/sfxt_profile.cpp
 )
 
 if(WIN32)

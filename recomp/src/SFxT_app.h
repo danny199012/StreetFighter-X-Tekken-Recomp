@@ -6,6 +6,8 @@
 
 #include <rex/rex_app.h>
 
+#include "sfxt_profile.h"
+
 class SfxtApp : public rex::ReXApp {
  public:
   using rex::ReXApp::ReXApp;
@@ -16,9 +18,17 @@ class SfxtApp : public rex::ReXApp {
         PPCImageConfig));
   }
 
+  void OnPreSetup(rex::RuntimeConfig& config) override {
+    // The profile_* cvars must exist before the runtime parses SFxT.toml,
+    // otherwise the file's profile lines are silently dropped. The macros
+    // register at static-init time; this logs the values. The identity
+    // overrides themselves are strong link-time replacements of the
+    // runtime's XamUser* imports (see sfxt_profile.cpp).
+    sfxt::RegisterProfileCVars();
+  }
+
   // Override virtual hooks for customization:
   // void OnPostInitLogging() override {}
-  // void OnPreSetup(rex::RuntimeConfig& config) override {}
   // void OnLoadXexImage(std::string& xex_image) override {}
   // void OnPostLoadXexImage() override {}
   // void OnPostSetup() override {}
