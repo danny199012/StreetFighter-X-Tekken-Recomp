@@ -1,0 +1,109 @@
+<Window x:Class="RecompLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recomp Launcher"
+        Width="920" Height="660" MinWidth="760" MinHeight="540"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BgBrush}"
+        UseLayoutRounding="True">
+
+    <DockPanel>
+
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top" Background="{StaticResource PanelBrush}" Foreground="{StaticResource TextBrush}">
+            <Menu.Resources>
+                <Style TargetType="MenuItem">
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </Menu.Resources>
+            <MenuItem Header="_File">
+                <MenuItem Header="_New profile..." Click="OnNewProfile"/>
+                <MenuItem Header="Open _profile..." Click="OnOpenProfile" InputGestureText="Ctrl+O"/>
+                <MenuItem Header="_Reload profile" Click="OnReloadProfile" InputGestureText="F5"/>
+                <Separator/>
+                <MenuItem Header="Open _config file" Click="OnOpenConfig"/>
+                <MenuItem Header="Open config _folder" Click="OnOpenConfigFolder"/>
+                <Separator/>
+                <MenuItem Header="E_xit" Click="OnExit" InputGestureText="Alt+F4"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About Recomp Launcher" Click="OnAbout"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Header -->
+        <Border DockPanel.Dock="Top" Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="16,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="BannerImage" Grid.Column="0" Stretch="Uniform" MaxHeight="76"
+                       VerticalAlignment="Center" Margin="0,0,16,0" Visibility="Collapsed"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock x:Name="GameTitle" Text="Recomp Launcher" FontSize="21" FontWeight="Bold"/>
+                    <TextBlock x:Name="GameSubtitle" Text="Open a launcher.json profile to begin"
+                               Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,2,0,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                        <TextBlock x:Name="ExeStatus" Text="" FontSize="11" Margin="0,0,14,0"/>
+                        <TextBlock x:Name="DataRootStatus" Text="" FontSize="11"/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center"
+                           Text="In-game: F3 debug · F4 settings · ` console"
+                           Style="{StaticResource HintText}" Margin="12,0,0,0"
+                           x:Name="OverlayHint" Visibility="Collapsed"/>
+            </Grid>
+        </Border>
+
+        <!-- Footer -->
+        <Border DockPanel.Dock="Bottom" Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0" Padding="16,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="ShowAdvanced" Content="Advanced" Margin="0,0,12,0"
+                              Checked="OnAdvancedChanged" Unchecked="OnAdvancedChanged"/>
+                    <Button Content="Reset to defaults" Click="OnReset" Padding="10,5" FontSize="12"/>
+                </StackPanel>
+                <TextBlock x:Name="StatusText" Grid.Column="1" Text="Ready."
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Foreground="{StaticResource MutedBrush}" TextTrimming="CharacterEllipsis"
+                           Margin="12,0"/>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button x:Name="AddDiscButton" Content="Add disc…" Click="OnAddDisc"
+                            Width="92" Margin="0,0,8,0"
+                            ToolTip="Extract game files from your own Xbox 360 disc image (.iso) into the game folder."/>
+                    <Button x:Name="SaveButton" Content="Save" Click="OnSave"
+                            Width="92" Margin="0,0,8,0"/>
+                    <Button x:Name="LaunchButton" Content="▶  Launch" Click="OnLaunch"
+                            Style="{StaticResource PrimaryButton}" Width="130"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Body: tab nav + settings panel -->
+        <Grid Margin="16,12,16,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="NavList" SelectionChanged="OnNavSelected"
+                     BorderThickness="1" Margin="0,0,12,0"/>
+            <Border Grid.Column="1" Background="{StaticResource PanelBrush}"
+                    BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="18,14">
+                    <StackPanel x:Name="SettingsHost"/>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+    </DockPanel>
+</Window>

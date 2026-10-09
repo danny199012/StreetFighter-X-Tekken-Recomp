@@ -1,0 +1,52 @@
+<Window x:Class="RecompLauncher.NewProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create launcher profile"
+        Width="640" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{StaticResource BgBrush}">
+    <StackPanel Margin="18">
+
+        <TextBlock Text="New recomp profile" FontSize="17" FontWeight="Bold" Margin="0,0,0,2"/>
+        <TextBlock Text="Generates a launcher.json you can drop next to any ReXGlue recomp."
+                   Style="{StaticResource HintText}" Margin="0,0,0,14"/>
+
+        <TextBlock Text="Game name"/>
+        <TextBox x:Name="NameBox" Margin="0,2,0,10"/>
+
+        <TextBlock Text="Subtitle (optional)"/>
+        <TextBox x:Name="SubtitleBox" Margin="0,2,0,10"/>
+
+        <TextBlock Text="Game executable (.exe)"/>
+        <StackPanel Orientation="Horizontal" Margin="0,2,0,10">
+            <TextBox x:Name="ExeBox" Width="440"/>
+            <Button Content="Browse..." Margin="6,0,0,0" Padding="10,4" Click="OnBrowseExe"/>
+        </StackPanel>
+
+        <TextBlock Text="Game data root (extracted game data, optional)"/>
+        <StackPanel Orientation="Horizontal" Margin="0,2,0,10">
+            <TextBox x:Name="DataRootBox" Width="440"/>
+            <Button Content="Browse..." Margin="6,0,0,0" Padding="10,4" Click="OnBrowseDataRoot"/>
+        </StackPanel>
+
+        <TextBlock Text="Banner image (optional, shown in the launcher header)"/>
+        <StackPanel Orientation="Horizontal" Margin="0,2,0,10">
+            <TextBox x:Name="BannerBox" Width="440"/>
+            <Button Content="Browse..." Margin="6,0,0,0" Padding="10,4" Click="OnBrowseBanner"/>
+        </StackPanel>
+
+        <TextBlock Text="GPU plugin argument" Style="{StaticResource HintText}"/>
+        <TextBox x:Name="GpuBox" Text="xenos" Width="200" HorizontalAlignment="Left"
+                 Margin="0,2,0,16"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel" Padding="14,7" Margin="0,0,8,0" Click="OnCancel"/>
+            <Button Content="Create profile..." Style="{StaticResource PrimaryButton}"
+                    Padding="14,7" Click="OnCreate"/>
+        </StackPanel>
+
+        <TextBlock x:Name="ErrorText" Foreground="{StaticResource ErrorBrush}" FontSize="12"
+                   Margin="0,10,0,0" Visibility="Collapsed" TextWrapping="Wrap"/>
+    </StackPanel>
+</Window>

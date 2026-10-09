@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>RecompLauncher</RootNamespace>
+    <AssemblyTitle>Recomp Launcher</AssemblyTitle>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+
+  <!--
+    Game binaries embedded into the launcher executable. Drop the recompiled
+    game's exe + runtime DLLs into this payload folder before building; they
+    are written out next to the profile on first launch (see PayloadService).
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="payload\**\*" />
+  </ItemGroup>
+
+</Project>

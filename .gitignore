@@ -1,0 +1,28 @@
+# Build outputs
+build/
+out/
+publish/
+bin/
+obj/
+
+# ReXGlue codegen output - machine-generated from YOUR OWN game dump.
+# Never commit: it is derived from game code.
+recomp/generated/default/
+
+# Embedded game payload - the recompiled game binaries.
+# Build them yourself from your own dump, then drop them here.
+launcher/src/RecompLauncher/payload/
+
+# Third-party redistributables
+extract-xiso.exe
+
+# Mods (user content)
+launcher/mods/*
+!launcher/mods/.gitkeep
+
+# IDE / OS noise
+.vs/
+.vscode/
+*.user
+.DS_Store
+Thumbs.db

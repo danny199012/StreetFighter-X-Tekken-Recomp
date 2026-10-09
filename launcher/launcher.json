@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+
+  "game": {
+    "name": "Street Fighter X Tekken",
+    "subtitle": "Xbox 360 recomp (ReXGlue)",
+    "exe": "game/SFxT.exe",
+    "gameDataRoot": "game",
+    "args": [ "--gpu_plugin", "xenos", "--no-fullscreen" ],
+    "config": null,
+    "banner": "banner.jpg",
+    "usernameCvar": "profile_name",
+    "onlineUsernameCvar": "online_username",
+    "extractXisoPath": null
+  },
+
+  "tabs": [
+    {
+      "name": "Display",
+      "settings": [
+        {
+          "cvar": "window_width",
+          "label": "Window width",
+          "type": "int",
+          "default": "1280",
+          "min": 640,
+          "max": 3840,
+          "hint": "Windowed width in pixels. Fullscreen is forced off at launch (performance)."
+        },
+        {
+          "cvar": "window_height",
+          "label": "Window height",
+          "type": "int",
+          "default": "720",
+          "min": 480,
+          "max": 2160,
+          "hint": "Windowed height in pixels."
+        },
+        {
+          "cvar": "vsync",
+          "label": "V-Sync",
+          "type": "bool",
+          "default": "false",
+          "hint": "Cap presentation to the display refresh rate."
+        },
+        {
+          "cvar": "present_letterbox",
+          "label": "Letterbox non-native aspect",
+          "type": "bool",
+          "default": "true",
+          "advanced": true,
+          "hint": "Draw black bars when the window aspect differs from the guest mode."
+        },
+        {
+          "cvar": "monitor",
+          "label": "Monitor",
+          "type": "choice",
+          "default": "0",
+          "choices": [
+            { "value": "0", "label": "Primary (0)" },
+            { "value": "1", "label": "Monitor 1" },
+            { "value": "2", "label": "Monitor 2" }
+          ],
+          "hint": "Which display to use.",
+          "advanced": true
+        }
+      ]
+    },
+
+    {
+      "name": "Graphics",
+      "settings": [
+        {
+          "cvar": "resolution_scale",
+          "label": "Internal resolution scale",
+          "type": "int",
+          "default": "1",
+          "min": 1,
+          "max": 4,
+          "hint": "Render the guest framebuffer at Nx resolution (supersampling). 1 = native."
+        },
+        {
+          "cvar": "anisotropic_override",
+          "label": "Anisotropic filtering",
+          "type": "choice",
+          "default": "0",
+          "choices": [
+            { "value": "0", "label": "Game default" },
+            { "value": "2", "label": "2x" },
+            { "value": "4", "label": "4x" },
+            { "value": "8", "label": "8x" },
+            { "value": "16", "label": "16x" }
+          ],
+          "hint": "Force a texture filtering level."
+        }
+      ]
+    }
+  ]
+}

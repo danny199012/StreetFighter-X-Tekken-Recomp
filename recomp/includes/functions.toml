@@ -1,0 +1,105 @@
+# SFxT - explicit function declarations
+# Addresses reported as unresolved call targets / runtime fatals (boot iterations).
+
+[analysis]
+max_vtable_iterations = 100
+max_discovery_iterations = 100
+max_resolve_iterations = 100
+
+[functions]
+0x82353448 = { name = "sub_82353448" }
+0x822B33F8 = { name = "sub_822B33F8" }
+0x8253D120 = { name = "sub_0x8253D120" }
+0x823DE3A0 = { name = "sub_0x823DE3A0" }
+0x8234DDE8 = { name = "sub_8234DDE8" }
+0x8249A388 = { name = "sub_8249A388" }
+0x8249A3B0 = { name = "sub_8249A3B0" }
+0x826214B8 = { name = "sub_826214B8" }
+0x82626720 = { name = "sub_82626720" }
+0x82662E18 = { name = "sub_82662E18" }
+0x827586E0 = { name = "sub_827586E0" }
+0x827586F8 = { name = "sub_827586F8" }
+0x82758710 = { name = "sub_82758710" }
+0x82758728 = { name = "sub_82758728" }
+0x82758740 = { name = "sub_82758740" }
+0x827795C0 = { name = "sub_827795C0" }
+0x827843F0 = { name = "sub_827843F0" }
+0x828BA048 = { name = "sub_828BA048" }
+0x82A29AB0 = { name = "sub_82A29AB0" }
+0x82627AC8 = { name = "sub_82627AC8" }
+0x8262CEF0 = { name = "sub_8262CEF0" }
+0x825094B8 = { name = "sub_825094B8" }
+0x8289BBB8 = { name = "sub_8289BBB8" }
+0x8287B170 = { name = "sub_8287B170" }
+0x8287B098 = { name = "sub_8287B098" }
+0x828FA630 = { name = "sub_828FA630" }
+0x82865D10 = { name = "sub_82865D10" }
+0x8229AA20 = { name = "sub_8229AA20" }
+0x8287B158 = { name = "sub_8287B158" }
+0x828427F8 = { name = "sub_828427F8" }
+0x8249E728 = { name = "sub_8249E728" }
+0x8217F540 = { name = "sub_8217F540" }
+0x826214A0 = { name = "sub_826214A0" }
+0x821A7670 = { name = "sub_821A7670" }
+0x82770588 = { name = "sub_82770588" }
+0x82549128 = { name = "sub_82549128" }
+0x8246B5B0 = { name = "sub_8246B5B0" }
+0x828EF7A0 = { name = "sub_828EF7A0" }
+0x827A77B0 = { name = "sub_827A77B0" }
+0x821A7CA8 = { name = "sub_821A7CA8" }
+0x82349F10 = { name = "sub_82349F10" }
+0x821A7CB8 = { name = "sub_821A7CB8" }
+0x821B1C70 = { name = "sub_821B1C70" }
+0x8234D408 = { name = "sub_8234D408" }
+0x82349F00 = { name = "sub_82349F00" }
+0x82349F20 = { name = "sub_82349F20" }
+0x82349F40 = { name = "sub_82349F40" }
+0x82349F50 = { name = "sub_82349F50" }
+0x8249A320 = { name = "sub_8249A320" }
+0x8249E6B8 = { name = "sub_8249E6B8" }
+0x8249E6F8 = { name = "sub_8249E6F8" }
+
+# probe sweep
+
+# probe sweep
+
+# probe sweep
+0x8249E688 = { name = "sub_8249E688" }
+
+# probe sweep
+
+# probe sweep
+
+# probe sweep
+
+# probe sweep
+
+# restored E-grid (0x10-spaced vcall thunks, validated)
+
+# Conditional tail call at 0x8249ED6C: cmplwi r3,0 ; bne 0x8249ECC4
+# ReXGlue cannot emit conditional branches crossing function boundaries,
+# so redirect via a host hook: r3 != 0 -> jump to sub_8249ECC4, else fall through.
+
+# thunk sweep
+0x823DCF00 = { name = "sub_823DCF00" }
+0x823DCF10 = { name = "sub_823DCF10" }
+0x823DCF20 = { name = "sub_823DCF20" }
+0x8249E668 = { name = "sub_8249E668" }
+0x8249E678 = { name = "sub_8249E678" }
+0x8249E698 = { name = "sub_8249E698" }
+0x8249E6A8 = { name = "sub_8249E6A8" }
+0x8249E6C8 = { name = "sub_8249E6C8" }
+0x8249E6D8 = { name = "sub_8249E6D8" }
+0x8249E6E8 = { name = "sub_8249E6E8" }
+0x8249E708 = { name = "sub_8249E708" }
+0x8249E718 = { name = "sub_8249E718" }
+0x8249E738 = { name = "sub_8249E738" }
+0x8249E950 = { name = "sub_8249E950" }
+
+# thunk sweep
+
+# thunk sweep
+0x8234D3F8 = { name = "sub_8234D3F8" }
+0x8234DA08 = { name = "sub_8234DA08" }
+0x8234DDD8 = { name = "sub_8234DDD8" }
+0x8234DE58 = { name = "sub_8234DE58" }
